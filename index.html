@@ -5,6 +5,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./css/style.css">
+    <script src="./js/archivos.js"></script>
+    <script src="./js/acciones.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.2/rollups/aes.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <title>AES Examen</title>
 </head>
 <body>
@@ -15,11 +21,11 @@
             <h3>Moreno Rodriguez Moises Mauricio</h3>
             <textarea name="aCifrar" id="mensaje" placeholder="Mensaje a cifrar"></textarea>
             <div>
-                <p>Gnerar clave:</p>
+                <p>Generar clave:</p>
                 <table>
-                    <th><input type="button" id="boton" value="16"></th>
-                    <th><input type="button" id="boton" value="24"></th>
-                    <th><input type="button" id="boton" value="32"></th>
+                    <th><input type="button" id="boton" value="16" onclick="generarnueva(16)"></th>
+                    <th><input type="button" id="boton" value="24" onclick="generarnueva(24)"></th>
+                    <th><input type="button" id="boton" value="32" onclick="generarnueva(32)"></th>
                 </table>
             </div>
             
@@ -28,30 +34,100 @@
             <div>
                 <p>Tipo de cifrado AES:</p>
                 <table>
-                    <th><input type="button" id="boton" value="128"></th>
-                    <th><input type="button" id="boton" value="192"></th>
-                    <th><input type="button" id="boton" value="256"></th>                    
+                    <th><input type="button" id="boton" value="128" onclick="para128()"></th>
+                    <th><input type="button" id="boton" value="192" onclick="para192()"></th>
+                    <th><input type="button" id="boton" value="256" onclick="para256()"></th>                    
                 </table>
             </div>
 
-            <textarea name="orignal" id="moriginal" placeholder="Mensaje orignal" readonly></textarea>
+            <textarea name="orignal" id="moriginal" placeholder="Mensaje original" readonly></textarea>
             <textarea name="mcifrado" id="mcifrado" placeholder="Mensaje cifrado" readonly></textarea>
-            <textarea name="" id="" placeholder="Nombre de archivo"></textarea>
+            <textarea name="nomarch" id="nomarch" placeholder="Nombre de archivo"></textarea>
 
             <div>
                 <table>
-                    <p>Tipo de archivo:</p>
-                    <th><input type="button" id="doc" onclick="adoc()" value="doc"></th>
-                    <th><input type="button" id="txt" onclick="atxt()" value="txt"></th>
-                    <th><input type="button" id="pdf" onclick="apdf()" value="pdf"></th>
+                    <th><input type ="button" id="a" onclick="atxt()" value="TXT"></th>
+                    <th><input type ="button" id="b" onclick="adoc()" value="DOC"></th>
+                    <th><input type ="button" id="c" onclick="apdf()" value="PDF"></th>
                 </table>
             </div>
 
-            <a href="descifrar.html">Ir a descifrar</a>
+            <div>
+                <a href="descifrar.html">Ir a descifrar</a>
+            </div>
+            
         </form>
-        
+
+                
 
     </div>
-    <script src="/js/archivos.js"></script>    
+
+
+    <script>
+        function generarnueva(len){
+    let random = '';
+    let wordChars = 'qwertyuiopasdfghjklzxcvbnm0123456789';
+        for (let i=0; i<len; i++){
+            random += wordChars.charAt(Math.floor(Math.random()* wordChars.length));                        
+        }
+    document.getElementById("llave").value = random;       
+}
+
+function adoc(){
+    var cth = document.getElementById("mcifrado").value;
+    var blob = new Blob([cth], {type: "text/plain;charset=utf-8"});
+    var nomarch = document.getElementById("nomarch").value;
+    if(cth == ""){        
+        //osea si no existe algun mensaje a cifrar, pues 
+        //obviamente q voy a cifrar xd
+        swal('Error', 'No hay un mensaje cifrado', 'error');
+    }else{
+        if(nomarch == ""){
+            swal('Error','Da un nombre para tu archivo porfa', 'error');
+        }else{
+            saveAs(blob, nomarch+ ".doc");
+        }
+    }
+}
+
+//y pues lo mismo para los demas tipos de archivos, pdf y txt
+//ctr +c 
+function atxt(){
+    var cth = document.getElementById("mcifrado").value;
+    var blob = new Blob([cth], {type: "text/plain;charset=utf-8"});
+    var nomarch = document.getElementById("nomarch").value;
+    if(cth == ""){        
+        //osea si no existe algun mensaje a cifrar, pues 
+        //obviamente q voy a cifrar xd
+        swal('Error', 'No hay un mensaje cifrado', 'error');
+    }else{
+        if(nomarch == ""){
+            swal('Error', 'Da un nombre para tu archivo porfa', 'error');
+        }else{
+            saveAs(blob, nomarch+ ".txt");
+        }
+    }
+}
+
+function apdf(){
+    var cth = document.getElementById("mcifrado").value;
+    var blob = new Blob([cth], {type: "text/plain;charset=utf-8"});
+    var nomarch = document.getElementById("nomarch").value;
+    if(cth == ""){        
+        //osea si no existe algun mensaje a cifrar, pues 
+        //obviamente q voy a cifrar xd
+        swal('No hay un mensaje cifrado');
+    }else{
+        if(nomarch == ""){
+            swal('Error','Da un nombre para tu archivo porfa', 'error');
+        }else{
+            saveAs(blob, nomarch+ ".pdf");
+        }
+    }
+}
+    </script>
+
+ 
 </body>
+
 </html>
