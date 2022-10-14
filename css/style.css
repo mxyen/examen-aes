@@ -1,0 +1,52 @@
+*{
+    text-align: center;
+}
+
+.main-container{
+    padding: 40px;
+    background-color: rgba(154, 174, 245, 0.668);
+    width: 480px;
+    display: inline-block;
+    border: 5px solid rgb(85, 37, 162);
+    margin: 2.5rem;
+    border-radius: 20px;
+    
+
+}
+
+table{
+    width: 100%;
+    padding: 7px;
+}
+
+input{
+    margin-bottom: 20px;
+    width: 100%;
+    font-size: 17px;
+    background: #31384A;
+    color: #fff;
+    padding: 10px;
+    border: none;
+}
+
+input:hover{
+    cursor: pointer;
+    color: rgb(0, 0, 0);
+    background: rgb(254, 253, 255);
+   
+}
+
+textarea{
+    height: 40px;
+    min-height: 40px;
+    max-height: 200px;
+    width: 100%;
+    max-width: 100%;
+    min-width: 100%;
+    padding: 7px;
+    margin-bottom: 20px;
+    box-sizing: border-box;
+    font-size: 17px;
+    resize: none;
+}
+
