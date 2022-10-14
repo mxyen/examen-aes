@@ -4,9 +4,67 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="shortcut icon" href="./img/candado-abierto.png" type="image/x-icon">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.2/rollups/aes.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <title>DESCIFRAR</title>
 </head>
 <body>
+    <div class="main-container">
+        <form action="">
+            <h2>Descifrar AES</h2>
+
+            <input type="file" id="archivo" placeholder="Archivo">
+    
+            <textarea name="mensaje" id="mensaje" placeholder="Mensaje a descifrar" readonly></textarea>
+    
+            <textarea name="llave" id="llave" placeholder="Llave"></textarea>
+    
+            <div>
+                <table>
+                    <th><input type="button" id="boton" value="Descifrar" onclick="descifrar()"></th>
+                </table>
+            </div>
+    
+            <textarea name="resultadosxd" id="resultadosxd" placeholder="Mensaje hexadecimal" readonly></textarea>
+    
+            <textarea name="mcifrado" id="mcifrado" placeholder="Mensaje descifrado"  style="display:none" readonly></textarea>
+          
+            <textarea id="nomarch" placeholder="Nombre del archivo"></textarea>
+    
+            <div>
+                <table>
+                    <th><input type="button" id="a" onclick="atxt()" value="TXT"></th>
+                    <th><input type="button" id="b" onclick="adoc()" value="DOC"></th>
+                    <th><input type="button" id="c" onclick="apdf()" value="PDF"></th>
+                </table>
+            </div>
+    
+            <div class="botones">
+                <input type="reset" id="limpiar" value="LIMPIAR">                         
+                <p id="link"><a href="index.html" id="link">CIFRAR</a></p>
+                
+            </div>
+
+
+
+        </form>
+
+    </div>
+
+    <h3>5IV7</h3>
+    <h3>Cárdenas Mayén Diana Araceli</h3>
+    <h3>Moreno Rodriguez Moises Mauricio</h3>
+    <br>  <br>
+
+
+   
+<script src="./js/archivos.js"></script>
+<script src="./js/acciones.js"></script>
+<script src="./js/types.js"></script>
     
 </body>
 </html>

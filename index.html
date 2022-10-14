@@ -4,21 +4,19 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./css/style.css">
-    <script src="./js/archivos.js"></script>
-    <script src="./js/acciones.js"></script>
+    <link rel="stylesheet" href="./css/style.css"> 
+    <link rel="shortcut icon" href="./img/candado.png" type="image/x-icon">  
     <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.2/rollups/aes.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-    <title>AES Examen</title>
+    <title>CIFRAR</title>
 </head>
 <body>
     <div class="main-container">
         <form action="">
-            <h2>Cifrado AES</h2>
-            <h3>Cárdenas Mayén Diana Araceli</h3>
-            <h3>Moreno Rodriguez Moises Mauricio</h3>
+            <h2>Cifrado AES</h2>            
+           
             <textarea name="aCifrar" id="mensaje" placeholder="Mensaje a cifrar"></textarea>
             <div>
                 <p>Generar clave:</p>
@@ -38,6 +36,7 @@
                     <th><input type="button" id="boton" value="192" onclick="para192()"></th>
                     <th><input type="button" id="boton" value="256" onclick="para256()"></th>                    
                 </table>
+                
             </div>
 
             <textarea name="orignal" id="moriginal" placeholder="Mensaje original" readonly></textarea>
@@ -51,83 +50,22 @@
                     <th><input type ="button" id="c" onclick="apdf()" value="PDF"></th>
                 </table>
             </div>
-
-            <div>
-                <a href="descifrar.html">Ir a descifrar</a>
-            </div>
             
-        </form>
-
+            <div class="botones">
+                <input type="reset" id="limpiar" value="LIMPIAR">                         
+                <p id="link"><a href="descifrar.html" id="link">DESCIFRAR</a></p>
                 
-
+            </div>
+   
+        </form>
     </div>
+    <h3>5IV7</h3>
+    <h3>Cárdenas Mayén Diana Araceli</h3>
+    <h3>Moreno Rodriguez Moises Mauricio</h3>
+    <br>  <br>
 
-
-    <script>
-        function generarnueva(len){
-    let random = '';
-    let wordChars = 'qwertyuiopasdfghjklzxcvbnm0123456789';
-        for (let i=0; i<len; i++){
-            random += wordChars.charAt(Math.floor(Math.random()* wordChars.length));                        
-        }
-    document.getElementById("llave").value = random;       
-}
-
-function adoc(){
-    var cth = document.getElementById("mcifrado").value;
-    var blob = new Blob([cth], {type: "text/plain;charset=utf-8"});
-    var nomarch = document.getElementById("nomarch").value;
-    if(cth == ""){        
-        //osea si no existe algun mensaje a cifrar, pues 
-        //obviamente q voy a cifrar xd
-        swal('Error', 'No hay un mensaje cifrado', 'error');
-    }else{
-        if(nomarch == ""){
-            swal('Error','Da un nombre para tu archivo porfa', 'error');
-        }else{
-            saveAs(blob, nomarch+ ".doc");
-        }
-    }
-}
-
-//y pues lo mismo para los demas tipos de archivos, pdf y txt
-//ctr +c 
-function atxt(){
-    var cth = document.getElementById("mcifrado").value;
-    var blob = new Blob([cth], {type: "text/plain;charset=utf-8"});
-    var nomarch = document.getElementById("nomarch").value;
-    if(cth == ""){        
-        //osea si no existe algun mensaje a cifrar, pues 
-        //obviamente q voy a cifrar xd
-        swal('Error', 'No hay un mensaje cifrado', 'error');
-    }else{
-        if(nomarch == ""){
-            swal('Error', 'Da un nombre para tu archivo porfa', 'error');
-        }else{
-            saveAs(blob, nomarch+ ".txt");
-        }
-    }
-}
-
-function apdf(){
-    var cth = document.getElementById("mcifrado").value;
-    var blob = new Blob([cth], {type: "text/plain;charset=utf-8"});
-    var nomarch = document.getElementById("nomarch").value;
-    if(cth == ""){        
-        //osea si no existe algun mensaje a cifrar, pues 
-        //obviamente q voy a cifrar xd
-        swal('No hay un mensaje cifrado');
-    }else{
-        if(nomarch == ""){
-            swal('Error','Da un nombre para tu archivo porfa', 'error');
-        }else{
-            saveAs(blob, nomarch+ ".pdf");
-        }
-    }
-}
-    </script>
-
- 
+    <script src="./js/archivos.js"></script>
+    <script src="./js/acciones.js"></script>
+    <script src="./js/types.js"></script>
 </body>
-
 </html>
