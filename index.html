@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/style.css">
+    <title>AES Examen</title>
+</head>
+<body>
+    <div class="main-container">
+        <form action="">
+            <h2>Cifrado AES</h2>
+            <h3>Cárdenas Mayén Diana Araceli</h3>
+            <h3>Moreno Rodriguez Moises Mauricio</h3>
+            <textarea name="aCifrar" id="mensaje" placeholder="Mensaje a cifrar"></textarea>
+            <div>
+                <p>Gnerar clave:</p>
+                <table>
+                    <th><input type="button" id="boton" value="16"></th>
+                    <th><input type="button" id="boton" value="24"></th>
+                    <th><input type="button" id="boton" value="32"></th>
+                </table>
+            </div>
+            
+            <textarea name="llave" id="llave" placeholder="Llave"></textarea>
+
+            <div>
+                <p>Tipo de cifrado AES:</p>
+                <table>
+                    <th><input type="button" id="boton" value="128"></th>
+                    <th><input type="button" id="boton" value="192"></th>
+                    <th><input type="button" id="boton" value="256"></th>                    
+                </table>
+            </div>
+
+            <textarea name="orignal" id="moriginal" placeholder="Mensaje orignal" readonly></textarea>
+            <textarea name="mcifrado" id="mcifrado" placeholder="Mensaje cifrado" readonly></textarea>
+            <textarea name="" id="" placeholder="Nombre de archivo"></textarea>
+
+            <div>
+                <table>
+                    <p>Tipo de archivo:</p>
+                    <th><input type="button" id="doc" onclick="adoc()" value="doc"></th>
+                    <th><input type="button" id="txt" onclick="atxt()" value="txt"></th>
+                    <th><input type="button" id="pdf" onclick="apdf()" value="pdf"></th>
+                </table>
+            </div>
+
+            <a href="descifrar.html">Ir a descifrar</a>
+        </form>
+        
+
+    </div>
+    <script src="/js/archivos.js"></script>    
+</body>
+</html>
